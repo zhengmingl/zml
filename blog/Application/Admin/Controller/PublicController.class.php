@@ -12,6 +12,7 @@ public function yzlogin(){
         $username=I('post.username');
         $password=I('post.password');
         $code=I('post.passcode');
+
         if(empty($code)){
             $this->error('验证码不能为空','login',1);
         }
@@ -27,6 +28,11 @@ public function yzlogin(){
         $per=D('Person');
         $row=$per->where($where)->find();
         if($row['id']){
+        $row['num']=$row['num']+1;
+        $row['time']=time();
+        $id=$row['id'];
+        $per->where("id=$id")->save($row);    //更新登录次数和时间
+        
             session('user',$row);
             $this->success('登陆成功',U('Admin/Index/index'),1);
         }else{
@@ -34,7 +40,7 @@ public function yzlogin(){
         }
     }
 }
-
+     
   //定义方法生成验证码
     public function Verify(){
          $config = array(
