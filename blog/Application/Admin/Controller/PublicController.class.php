@@ -27,11 +27,13 @@ public function yzlogin(){
         $where="username='$username' and password='$password'";
         $per=D('Person');
         $row=$per->where($where)->find();
+        $row['oldtime']=$row['time'];
         if($row['id']){
         $row['num']=$row['num']+1;
         $row['time']=time();
+        $row['login_ip']=$_SERVER['REMOTE_ADDR'];      //获取IP地址
         $id=$row['id'];
-        $per->where("id=$id")->save($row);    //更新登录次数和时间
+        $per->where("id=$id")->field('num,time,login_ip')->save($row);    //更新登录次数和时间
         
             session('user',$row);
             $this->success('登陆成功',U('Admin/Index/index'),1);

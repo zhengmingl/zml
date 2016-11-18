@@ -61,7 +61,7 @@
                 	<img src="/Public/Admin/images/face.jpg" width="120" class="radius-circle" /><br />
                    <?php echo ($row["username"]); ?>
                 </div>
-                <div class="panel-foot bg-back border-back">您好，<?php echo ($row["username"]); ?>，这是您第<?php echo ($row["num"]); ?>次登录，上次登录为2014-10-1。</div>
+                <div class="panel-foot bg-back border-back">您好，<?php echo ($row["username"]); ?>，这是您第<?php echo ($row["num"]); ?>次登录，上次登录为<?php echo ($row["oldtime"]); ?>。</div>
             </div>
             <br />
         	<div class="panel">
