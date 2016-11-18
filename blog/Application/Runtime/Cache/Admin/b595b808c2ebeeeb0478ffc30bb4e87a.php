@@ -44,7 +44,7 @@
             </ul>
         </div>
         <div class="admin-bread">
-            <span>您好，admin，欢迎您的光临。</span>
+            <span>您好，<?php echo ($row["username"]); ?>欢迎您的光临。</span>
             <ul class="bread">
                 <li><a href="index.html" class="icon-home"> 开始</a></li>
                 <li>后台首页</li>
@@ -59,9 +59,9 @@
         	<div class="panel border-back">
             	<div class="panel-body text-center">
                 	<img src="/Public/Admin/images/face.jpg" width="120" class="radius-circle" /><br />
-                    admin
+                   <?php echo ($row["username"]); ?>
                 </div>
-                <div class="panel-foot bg-back border-back">您好，admin，这是您第100次登录，上次登录为2014-10-1。</div>
+                <div class="panel-foot bg-back border-back">您好，<?php echo ($row["username"]); ?>，这是您第<?php echo ($row["num"]); ?>次登录，上次登录为2014-10-1。</div>
             </div>
             <br />
         	<div class="panel">
