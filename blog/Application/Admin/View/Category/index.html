@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>拼图后台管理-后台管理</title>
+    <link rel="stylesheet" href="/Public/Admin/css/pintuer.css">
+    <link rel="stylesheet" href="/Public/Admin/css/admin.css">
+    <script src="__ADMIN__/js/jquery.js"></script>
+    <script src="__ADMIN__/js/pintuer.js"></script>
+    <script src="__ADMIN__/js/respond.js"></script>
+    <script src="__ADMIN__/js/admin.js"></script>
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+    <link href="/favicon.ico" rel="bookmark icon" />
+    <script>
+        //定义页面载入事件
+        $(function(){
+            //获取btnAdd按钮
+            $('#btnAdd').bind('click',function(){
+                window.location.href = 'index.php?c=Category&a=add';
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+<?php $type="10"?>
+<include file="Pub:daohang"/>
+<div class="lefter">
+    <div class="logo"><a href="#" target="_blank"><img src="__ADMIN__/images/logo.png" alt="后台管理系统" /></a></div>
+</div>
+<div class="righter nav-navicon" id="admin-nav">
+    <div class="mainer">
+        <div class="admin-navbar">
+            <span class="float-right">
+                <a class="button button-little bg-main" href="#" target="_blank">前台首页</a>
+                <a class="button button-little bg-yellow" href="{:U('Admin/Public/logout')}">注销登录</a>
+            </span>
+            <ul class="nav nav-inline admin-nav">
+                <li ><a href="{:U('Admin/Index/index')}" class="icon-home"> 开始</a>
+                    <ul><li class="active"><a  href="{:U('Admin/Category/index')}">分类管理</a></li><li><a href="#">添加分类</a></li><li><a href="#">修改分类</a></li></ul>
+                </li>
+            
+                <li><a href="{:U('Admin/Category/index')}" class="icon-file-text" target="_blank"> 文章分类</a>
+                </li>
+                <li><a href="#" class="icon-shopping-cart"> 订单</a></li>
+                <li><a href="#" class="icon-user"> 会员</a></li>
+                <li><a href="#" class="icon-file"> 文件</a></li>
+                <li><a href="#" class="icon-th-list"> 栏目</a></li>
+            </ul>
+        </div>
+        <div class="admin-bread">
+            <span >您好，{$row.username}欢迎您的光临。</span>
+            <ul class="bread">
+                <li><a href="index.html" class="icon-home"> 开始</a></li>
+                <li>后台首页</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="admin">
+	<form method="post">
+    <div class="panel admin-panel">
+    	<div class="panel-head"  id="iii"><strong>分类列表11111</strong></div>
+        <div class="padding border-bottom">
+            <input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选" />
+            <input type="button" id="btnAdd" class="button button-small border-green" value="添加分类" />
+            <input type="button" class="button button-small border-yellow" value="批量删除" />
+            <input type="button" class="button button-small border-blue" value="回收站" />
+        </div>
+        <table class="table table-hover">
+        	<tr>
+                <th width="45">选择</th>
+                <th width="120">所属类别</th>
+                <th width="240">分类名称</th>
+                <th width="*">分类描述</th>
+                <th width="100">操作</th>
+            </tr>
+         
+            <tr>
+                <td><input type="checkbox" name="id" value="" /></td>
+                <td></td>
+                <td>
+                   
+                </td>
+                <td></td>
+                <td>
+                    <a class="button border-blue button-little" href="">修改</a> 
+                    <a class="button border-yellow button-little" href="#" onclick="">删除</a>
+                </td>
+            </tr>
+           
+        </table>
+    </div>
+    </form>
+    <br />
+    <p class="text-right text-gray">基于<a class="text-gray" target="_blank" href="#">拼图前端框架</a>构建</p>
+</div>
+
+</body>
+</html>
