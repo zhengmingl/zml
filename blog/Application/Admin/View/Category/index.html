@@ -17,22 +17,50 @@
     <script>
         //定义页面载入事件
         $(function(){
-            //获取btnAdd按钮
+            //获取btnAdd按钮 增加分类
             $('#btnAdd').bind('click',function(){
-                window.location.href = 'index.php?c=Category&a=add';
+                window.location.href = "{:U('Admin/Category/add')}";
             });
-        });
+            //全选按钮
+            $('#all').click(function(){
+               $(".table :checkbox").attr("checked", true); 
+            });
 
+            //全不选按钮
+            $('#noall').click(function(){
+               $(".table :checkbox").attr("checked",false);
+            });
+
+            //反选按钮
+            $('#fall').click(function(){
+                  $(".table :checkbox").each(function () {
+                    $(this).attr("checked",!$(this).attr("checked")); //!$(this).attr("checked")判断复选框的状态：如果选中则取反
+                    });
+            });
+            //批量删除
+            $('#alldel').click(function(){
+                    if($(".table :checked").size()==0){
+                       alert('你没有选中任何元素！！！');
+                      return false;
+                    }else{
+                       if(confirm('你确定要删除么!!!')){
+                         return true;
+                       }else{
+                        return false;
+                       }
+                    }
+            })
+
+        }); 
     </script>
 </head>
-
 <body>
-<?php $type="10"?>
+<?php $type="10";$types="0";?>
 <include file="Pub:daohang"/>
 <div class="lefter">
     <div class="logo"><a href="#" target="_blank"><img src="__ADMIN__/images/logo.png" alt="后台管理系统" /></a></div>
 </div>
-<div class="righter nav-navicon" id="admin-nav">
+<div  id="admin-nav">
     <div class="mainer">
         <div class="admin-navbar">
             <span class="float-right">
@@ -63,14 +91,15 @@
 </div>
 
 <div class="admin">
-	<form method="post">
+	<form method="post" action="__CONTROLLER__/delall">
     <div class="panel admin-panel">
-    	<div class="panel-head"  id="iii"><strong>分类列表11111</strong></div>
+    	<div class="panel-head"  id="iii"><strong>分类列表</strong></div>
         <div class="padding border-bottom">
-            <input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选" />
-            <input type="button" id="btnAdd" class="button button-small border-green" value="添加分类" />
-            <input type="button" class="button button-small border-yellow" value="批量删除" />
-            <input type="button" class="button button-small border-blue" value="回收站" />
+        <input type="button" class="button button-small border-blue" name="checkall" checkfor="id[]" id="all" value="全选" />
+        <input type="button" class="button button-small border-blue" id="noall" value="全不选" />
+        <input type="button" class="button button-small border-blue" id="fall" value="反选" />
+        <input type="button" id="btnAdd" class="button button-small border-green" value="添加分类" />
+        <input type="submit" class="button button-small border-yellow" value="批量删除" id="alldel"/>
         </div>
         <table class="table table-hover">
         	<tr>
@@ -80,20 +109,18 @@
                 <th width="*">分类描述</th>
                 <th width="100">操作</th>
             </tr>
-         
+              <volist name="list"  id="vo">
             <tr>
-                <td><input type="checkbox" name="id" value="" /></td>
-                <td></td>
+                <td><input type="checkbox" name="id[]" value="{$vo['id']}" /></td>
+                <td>{$vo['name']}</td>
+                <td> {$vo.level|str_repeat='&nbsp;',###*5}{$vo['pid']} </td>
+                <td>{$vo['remark']} </td>
                 <td>
-                   
-                </td>
-                <td></td>
-                <td>
-                    <a class="button border-blue button-little" href="">修改</a> 
-                    <a class="button border-yellow button-little" href="#" onclick="">删除</a>
+                    <a class="button border-blue button-little"   href="{:U('Admin/Category/edit',array('id'=>$vo['id']))}">修改</a> 
+                    <a class="button border-yellow button-little" href="{:U('Admin/Category/del',array('id'=>$vo['id']))}" onclick="return confirm('确定删除么?')">删除</a>
                 </td>
             </tr>
-           
+           </volist>
         </table>
     </div>
     </form>

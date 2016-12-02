@@ -11,10 +11,10 @@
 
              <ul class="nav nav-inline admin-nav" id="menu_list">
                 <li <eq name="type" value='0'>class="active"</eq>><a href="{:U('Admin/Index/index')}" class="icon-home"> 开始</a>
-                     <ul><li><a href="index.php?c=Category&a=index">分类管理</a></li><li><a href="index.php?c=Article&a=index">文章管理</a></li><li><a href="index.php?c=Article&a=index">评论管理</a></li><li><li><a href="index.php?c=Album&a=index">相册管理</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li><li><a href="index.php?c=Zhanzhang&a=index">站长管理</a></li><li><a href="index.php?c=Link&a=index">友情链接</a></li></ul>  
+                     <ul><li class="active"><a href="index.php?c=Category&a=index">分类管理</a></li><li><a href="index.php?c=Article&a=index">文章管理</a></li><li><a href="index.php?c=Article&a=index">评论管理</a></li><li><li><a href="index.php?c=Album&a=index">相册管理</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li><li><a href="index.php?c=Zhanzhang&a=index">站长管理</a></li><li><a href="index.php?c=Link&a=index">友情链接</a></li></ul>  
                  </li>
-                <li <eq name="type" value='10'>class="active"</eq>><a href="{:U('Admin/Category/index')}" class="icon-file-text"> 文章管理</a>
-                   <ul><li  class="active"><a href="{:U('Admin/Category/index')}">文章管理</a></li><li><a href="index.php?c=Article&a=index">文章显示</a></li><li><li><a href="index.php?c=Album&a=index">文章添加</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li></ul>  
+                <li <eq name="type" value='10'>class="active"</eq>><a href="{:U('Admin/Category/index')}" class="icon-file-text"> 分类管理</a>
+                   <ul><li <eq name="types" value='0'>class="active"</eq>><a href="{:U('Admin/Category/index')}">分类管理</a></li><li <eq name="types" value='10'>class="active"</eq>><a href="{:U('Admin/Category/add')}">分类添加</a></li></ul>  
                 </li>
                 <li <eq name="type" value='20'>class="active"</eq>><a href="#" class="icon-shopping-cart"> 订单</a></li>
                 <li <eq name="type" value='30'>class="active"</eq>><a href="#" class="icon-user"> 会员</a></li>

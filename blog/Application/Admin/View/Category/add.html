@@ -17,19 +17,20 @@
 </head>
 
 <body>
-<?php $type="10"?>
-  <include file="Pub:daohang">
+<?php $type="10";$types="10"?>
+
+  <include file="Pub:daohang"/>
 
 <div class="admin">
   <div class="tab">
-    <div class="tab-head"> <strong>分类管理</strong>
+    <div class="tab-head"> <strong><a href="{:U('Admin/Category/index')}">分类管理</a></strong>
       <ul class="tab-nav">
         <li class="active"><a href="#tab-set">添加分类</a></li>
       </ul>
     </div>
     <div class="tab-body"> <br />
       <div class="tab-panel active" id="tab-set">
-        <form method="post" class="form-x" action="index.php?c=Category&a=addok">
+        <form method="post" class="form-x" action="__CONTROLLER__/addok">
           <div class="form-group">
             <div class="label">
               <label for="sitename">分类名称</label>
@@ -45,9 +46,12 @@
             <div class="field">
               <select name="pid" class="select">
               	  <option value="0">主类别</option>
-                  {foreach from=$data item='row'}
-                  <option value="{$row['cateid']}">{$row['name']|indent:($row['level']*10):'&nbsp;'}</option>
-                  {/foreach}
+                    <volist name='data' id='vo'>
+                        <option value='{$vo.id}'>
+                       {$vo.level|str_repeat='&nbsp;',###*5}{$vo.name}
+                         </option>
+                     </volist>
+                
               </select>
             </div>
           </div>
@@ -64,7 +68,7 @@
               <label for="siteurl">排序</label>
             </div>
             <div class="field">
-              <input type="text" class="input" id="sort" name="sort" size="50" placeholder="请填写排序编号" data-validate="required:请填写排序编号" />
+              <input type="text" class="input" id="sort" name="sort" size="50" placeholder="请填写排序编号0-50;功能正在开发!!" data-validate="required:请填写排序编号" />
             </div>
           </div>
           <div class="form-button">
