@@ -26,9 +26,9 @@
         	<div class="panel border-back">
             	<div class="panel-body text-center">
                 	<img src="__ADMIN__/images/face.jpg" width="120" class="radius-circle" /><br />
-                   {$row.username}
+                   {$sionrow.username}
                 </div>
-                <div class="panel-foot bg-back border-back">您好，{$row.username}，这是您第{$row.num}次登录，上次登录为{$row.oldtime}。</div>
+                <div class="panel-foot bg-back border-back">您好，{$sionrow.username}，这是您第{$sionrow.num}次登录，上次登录为{$sionrow.oldtime|date="Y-m-d",###}。</div>
             </div>
             <br />
         	<div class="panel">

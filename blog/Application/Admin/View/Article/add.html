@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title>拼图后台管理-后台管理</title>
+<link rel="stylesheet" href="__ADMIN__/css/pintuer.css">
+<link rel="stylesheet" href="__ADMIN__/css/admin.css">
+<link rel="stylesheet" href="__ADMIN__/css/demo.css">
+<link rel="stylesheet" href="__ADMIN__/css/dropify.css">
+<style type="text/css">
+   a:hover { text-decoration:none;}
+</style>      
+<script src="__ADMIN__/js/jquery.js"></script>
+<script src="__ADMIN__/js/pintuer.js"></script>
+<script src="__ADMIN__/js/respond.js"></script>
+<script src="__ADMIN__/js/admin.js"></script>
+<script src="__ADMIN__/js/dropify.js"></script>
+  <script>
+            //上传图片
+            $(document).ready(function(){
+                // Basic
+                $('.dropify').dropify();
+                // Translated
+                $('.dropify-fr').dropify({
+                    messages: {
+                        default: 'Glissez-déposez un fichier ici ou cliquez',
+                        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                        remove:  'Supprimer',
+                        error:   'Désolé, le fichier trop volumineux'
+                    }
+                });
+
+                // Used events
+                var drEvent = $('#input-file-events').dropify();
+                drEvent.on('dropify.beforeClear', function(event, element){
+                    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                });
+                drEvent.on('dropify.afterClear', function(event, element){
+                    alert('File deleted');
+                });
+
+                drEvent.on('dropify.errors', function(event, element){
+                    console.log('Has Errors');
+                });
+                var drDestroy = $('#input-file-to-destroy').dropify();
+                drDestroy = drDestroy.data('dropify')
+                $('#toggleDropify').on('click', function(e){
+                    e.preventDefault();
+                    if (drDestroy.isDropified()) {
+                        drDestroy.destroy();
+                    } else {
+                        drDestroy.init();
+                    }
+                })
+            });
+        </script>
+
+<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+<link href="/favicon.ico" rel="bookmark icon" />
+</head>
+<body>
+<?php $type="20";$types='10';?>
+<include file="Pub:daohang"/>
+<div class="admin">
+  <div class="tab">
+    <div class="tab-head"> <strong><a href="{:U('Admin/article/index')}">文章管理</a></strong>
+      <ul class="tab-nav">
+        <li class="active"><a href="#tab-set">添加文章</a></li>
+      </ul>
+    </div>
+    <div class="tab-body"> <br />
+      <div class="tab-panel active" id="tab-set">
+        <form method="post" class="form-x" action="__CONTROLLER__/addok" enctype='multipart/form-data'>
+          <div class="form-group">
+            <div class="label">
+              <label for="sitename">文章标题</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" id="title" name="title" size="50" placeholder="文章标题" data-validate="required:请填写您的文章标题" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label">
+              <label for="logo">缩略图</label>
+            </div>      
+            <div class="field"> <a style=text-decoration:underline >上传文件
+          <input size="100" type="file" id="input-file-events" class="dropify-event" name="file" data-validate="required:请选择上传文件,regexp#.+.(jpg|jpeg|png|gif)$:只能上传jpg|gif|png格式文件" /> 
+              </a> </div>
+          </div>
+          <div class="form-group">
+            <div class="label">
+              <label for="siteurl">文章作者</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" id="author" name="author" size="50" placeholder="请填写文章作者" data-validate="required:请填写文章作者" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label">
+              <label for="sitename">所属类别</label>
+            </div>
+            <div class="field">
+              <select name="cateid" class="select">
+                    <volist name='data' id='vo'>
+                        <option value='{$row.cateid}'>
+                       {$vo.level|str_repeat='&nbsp;',###*5}{$vo.name}
+                         </option>
+                     </volist>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label">
+              <label for="readme">文章描述</label>
+            </div>
+            <div class="field">
+              <textarea name="miaoshu" class="input" rows="5" cols="50" placeholder="请填写文章描述" data-validate="required:请填写文章描述"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label">
+              <label for="readme">文章内容</label>
+            </div>
+            <div class="field">
+              <textarea name="content" id="content" class="input" rows="5" cols="50"></textarea>
+              <script>
+                   // CKEDITOR.replace('content',{
+                   //     customConfig:'custom.js'
+                   // });
+              </script>
+            </div>
+          </div>
+          <div class="form-button">
+            <button name="submit" class="button bg-main" type="submit">提交</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div style='height:40px; border-bottom:1px #DDD solid'></div>
+  <p class="text-left text-gray" style="float:left">版权<a class="text-gray" target="_blank" href="#">归http://www.ticast.cn</a>所有</p>
+  <p class="text-right text-gray" style="float:right">基于<a class="text-gray" target="_blank" href="#">拼图前端框架</a>构建</p>
+</div>
+</body>
+</html>

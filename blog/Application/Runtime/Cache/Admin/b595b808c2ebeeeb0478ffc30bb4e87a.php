@@ -31,19 +31,21 @@
 
              <ul class="nav nav-inline admin-nav" id="menu_list">
                 <li <?php if(($type) == "0"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Index/index');?>" class="icon-home"> 开始</a>
-                     <ul><li class="active"><a href="index.php?c=Category&a=index">分类管理</a></li><li><a href="index.php?c=Article&a=index">文章管理</a></li><li><a href="index.php?c=Article&a=index">评论管理</a></li><li><li><a href="index.php?c=Album&a=index">相册管理</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li><li><a href="index.php?c=Zhanzhang&a=index">站长管理</a></li><li><a href="index.php?c=Link&a=index">友情链接</a></li></ul>  
+                     <ul><li class="active"><a href="<?php echo U('Admin/Category/index');?>">分类管理</a></li><li><a href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li><a href="index.php?c=Article&a=index">评论管理</a></li><li><li><a href="index.php?c=Album&a=index">相册管理</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li><li><a href="index.php?c=Zhanzhang&a=index">站长管理</a></li><li><a href="index.php?c=Link&a=index">友情链接</a></li></ul>  
                  </li>
                 <li <?php if(($type) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/index');?>" class="icon-file-text"> 分类管理</a>
                    <ul><li <?php if(($types) == "0"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/index');?>">分类管理</a></li><li <?php if(($types) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/add');?>">分类添加</a></li></ul>  
                 </li>
-                <li <?php if(($type) == "20"): ?>class="active"<?php endif; ?>><a href="#" class="icon-shopping-cart"> 订单</a></li>
-                <li <?php if(($type) == "30"): ?>class="active"<?php endif; ?>><a href="#" class="icon-user"> 会员</a></li>
-                <li <?php if(($type) == "40"): ?>class="active"<?php endif; ?>><a href="#" class="icon-file"> 文件</a></li>
+                 <li <?php if(($type) == "20"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Article/index');?>" class="icon-file"> 文章管理</a>
+                     <ul><li <?php if(($types) == "0"): ?>class="active"<?php endif; ?>><a  href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li <?php if(($types) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Article/add');?>">文章添加</a></li></ul>  
+                 </li>
+                <li <?php if(($type) == "30"): ?>class="active"<?php endif; ?>><a href="#" class="icon-shopping-cart"> 订单</a></li>
+                <li <?php if(($type) == "40"): ?>class="active"<?php endif; ?>><a href="#" class="icon-user"> 会员</a></li>
                 <li <?php if(($type) == "50"): ?>class="active"<?php endif; ?>><a href="#" class="icon-th-list"> 栏目</a></li>
             </ul>
         </div>
         <div class="admin-bread">
-            <span>您好，<?php echo ($row["username"]); ?>欢迎您的光临。</span>
+            <span>您好，<?php echo ($sionrow["username"]); ?>欢迎您的光临。</span>
             <ul class="bread">
                 <li><a href="index.html" class="icon-home"> 开始</a></li>
                 <li>后台首页</li>
@@ -59,9 +61,9 @@
         	<div class="panel border-back">
             	<div class="panel-body text-center">
                 	<img src="/Public/Admin/images/face.jpg" width="120" class="radius-circle" /><br />
-                   <?php echo ($row["username"]); ?>
+                   <?php echo ($sionrow["username"]); ?>
                 </div>
-                <div class="panel-foot bg-back border-back">您好，<?php echo ($row["username"]); ?>，这是您第<?php echo ($row["num"]); ?>次登录，上次登录为<?php echo ($row["oldtime"]); ?>。</div>
+                <div class="panel-foot bg-back border-back">您好，<?php echo ($sionrow["username"]); ?>，这是您第<?php echo ($sionrow["num"]); ?>次登录，上次登录为<?php echo (date("Y-m-d",$sionrow["oldtime"])); ?>。</div>
             </div>
             <br />
         	<div class="panel">

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/Public/Admin/css/pintuer.css">
     <link rel="stylesheet" href="/Public/Admin/css/admin.css">
     <script src="/Public/Admin/js/jquery.js"></script>
-    <!--<script src="/Public/Admin/js/pintuer.js"></script>-->
+    <script src="/Public/Admin/js/pintuer.js"></script>
     <script src="/Public/Admin/js/respond.js"></script>
     <script src="/Public/Admin/js/admin.js"></script>
     <script>

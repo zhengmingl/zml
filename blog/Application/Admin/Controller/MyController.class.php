@@ -8,5 +8,8 @@ class MyController extends Controller{
         if(empty($user_id)){
             $this->error('必须先登陆',U('Public/login'));
         }
+        $sionrow=session('user');
+     	$row['oldtime']=date('Y-m-d H:i:s',$row['oldtime']);
+         $this->assign('sionrow',$sionrow);
     }
 }

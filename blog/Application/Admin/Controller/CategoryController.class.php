@@ -29,16 +29,16 @@ use      Think\Controller;
         $cate=D('Category');
         $list=$cate->select();
         load('@/tree');
-		$data = tree($list);
+		    $data = tree($list);
         $this->assign('data',$data);
- 		$this->display();
+ 		   $this->display();
  	}
     public function addok(){
     	if(IS_POST){
     		$cate=D('Category');
     		$data=$cate->create();
     	   if($cate->add()){
-    	   	$this->success('添加成功','index',3);
+    	   	$this->success('添加成功','index',1);
     	   }else{
     	   	$this->error('添加失败');
     	   }	
