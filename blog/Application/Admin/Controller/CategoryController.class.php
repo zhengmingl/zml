@@ -37,7 +37,7 @@ use      Think\Controller;
     	if(IS_POST){
     		$cate=D('Category');
     		$data=$cate->create();
-    	   if($cate->add()){
+    	   if($cate->add($data)){
     	   	$this->success('添加成功','index',1);
     	   }else{
     	   	$this->error('添加失败');

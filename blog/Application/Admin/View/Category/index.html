@@ -15,28 +15,44 @@
     <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
     <link href="/favicon.ico" rel="bookmark icon" />
     <script>
+    $.fn.extend({
+      fanxuan:function(){
+      var leng=this.length;
+      for(var i=0;i<leng;i++){
+      this[i].checked=!this[i].checked;
+      }
+    }
+      });
+       
         //定义页面载入事件
         $(function(){
-            //获取btnAdd按钮 增加分类
-            $('#btnAdd').bind('click',function(){
-                window.location.href = "{:U('Admin/Category/add')}";
-            });
-            //全选按钮
-            $('#all').click(function(){
+              //全选按钮
+            $('#quanxuan').click(function(){
                $(".table :checkbox").attr("checked", true); 
             });
 
             //全不选按钮
-            $('#noall').click(function(){
+            $('#quxiao').click(function(){
                $(".table :checkbox").attr("checked",false);
             });
 
             //反选按钮
-            $('#fall').click(function(){
-                  $(".table :checkbox").each(function () {
-                    $(this).attr("checked",!$(this).attr("checked")); //!$(this).attr("checked")判断复选框的状态：如果选中则取反
-                    });
+            //  $('#fanxuan').click(function(){
+            //       $(".table :checkbox").each(function () {
+            //         $(this).attr("checked",!$(this).attr("checked")); //!$(this).attr("checked")判断复选框的状态：如果选中则取反
+            //         });
+            // });
+            $("#fanxuan").bind("click",function(){
+            $(".table :checkbox").fanxuan()
             });
+
+
+             //获取btnAdd按钮 增加分类
+            $('#btnAdd').bind('click',function(){
+                window.location.href = "{:U('Admin/Category/add')}";
+            });
+        
+           
             //批量删除
             $('#alldel').click(function(){
                     if($(".table :checked").size()==0){
@@ -95,9 +111,9 @@
     <div class="panel admin-panel">
     	<div class="panel-head"  id="iii"><strong>分类列表</strong></div>
         <div class="padding border-bottom">
-        <input type="button" class="button button-small border-blue" name="checkall" checkfor="id[]" id="all" value="全选" />
-        <input type="button" class="button button-small border-blue" id="noall" value="全不选" />
-        <input type="button" class="button button-small border-blue" id="fall" value="反选" />
+        <input type="button" class="button button-small border-blue" name="checkall" checkfor="id[]" id='quanxuan' value="全选1" />
+        <input type="button" class="button button-small border-blue" id="quxiao" value="全不选" />
+        <input type="button" class="button button-small border-blue" id="fanxuan" value="反选" />
         <input type="button" id="btnAdd" class="button button-small border-green" value="添加分类" />
         <input type="submit" class="button button-small border-yellow" value="批量删除" id="alldel"/>
         </div>

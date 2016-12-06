@@ -66,16 +66,17 @@
 <include file="Pub:daohang"/>
 <div class="admin">
   <div class="tab">
-    <div class="tab-head"> <strong>文章管理</strong>
+    <div class="tab-head"> <strong><a href="{:U('Admin/Article/index')}">文章管理</a></strong>
       <ul class="tab-nav">
         <li class="active"><a href="#tab-set">修改文章</a></li>
       </ul>
     </div>
     <div class="tab-body"> <br />
       <div class="tab-panel active" id="tab-set">
-        <form method="post" class="form-x" action="" enctype='multipart/form-data'>
+        <form method="post" class="form-x" action="__CONTROLLER__/editok" enctype='multipart/form-data'>
           <div class="form-group">
-            <div class="label">
+            <div class="labe
+            l">
               <label for="sitename">文章标题</label>
             </div>
             <div class="field">
@@ -105,7 +106,7 @@
             <div class="field">
               <select name="cateid" class="select">
               <volist name='data' id='vo'>
-                        <option value='{$vo.id}'>
+                        <option value='{$vo.id}' <if condition='$row.cid eq $vo.id '>selected='selected'</if>>
                        {$vo.level|str_repeat='&nbsp;',###*5}{$vo.name}
                          </option>
                      </volist>
@@ -129,7 +130,7 @@
             </div>
           </div>
           <div class="form-button">
-            <input type="hidden" name="artid" value="" />
+            <input type="hidden" name="id" value="{$row.id}" />
             <button name="submit" class="button bg-main" type="submit">提交</button>
           </div>
         </form>

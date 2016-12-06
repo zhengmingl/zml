@@ -15,27 +15,72 @@
     <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
     <link href="/favicon.ico" rel="bookmark icon" />
     <script>
+                  $.fn.extend({
+      quanxuan:function(){
+      this.attr("checked",true);
+      },
+      quxiao:function(){ 
+       this.attr("checked",false);
+      },
+      fanxuan:function(){
+      var leng=this.length;
+      for(var i=0;i<leng;i++){
+      this[i].checked=!this[i].checked;
+      }
+    }
+      });
+    
         //定义页面载入事件
         $(function(){
             //获取btnAdd按钮
-            $('#btnAdd').bind('click',function(){
-                window.location.href = "{:U('Admin/Article/add')}";
+     $('#btnAdd').bind('click',function(){
+         window.location.href = "{:U('Admin/Article/add')}";
             });
-        });
+     $("#quanxuan").bind("click",function(){
+        $(".table :checkbox").quanxuan();
+      });
+      $("#quxiao").bind("click",function(){
+         $(".table :checkbox").quxiao()
+      });
+    
+
+      $("#fanxuan").bind("click",function(){
+        $(".table :checkbox").fanxuan()
+      });
+        
+            //批量删除
+     $('#alldel').click(function(){
+        if($(".table :checked").size()==0){
+            alert('你没有选中任何元素！！！');
+                      return false;
+               }else{
+             if(confirm('你确定要删除么!!!')){
+                 return true;
+                       }else{
+                return false;
+                       }
+                    }
+            })
+
+        }); 
+
+   
+
     </script>
 </head>
 <body>
 <?php $type='20';$types='0';?>
 <include file="Pub:daohang"/>
 <div class="admin">
-	<form action="" method="post">
+	<form action="__CONTROLLER__/delall" method="post">
     <div class="panel admin-panel">
     	<div class="panel-head"><strong>文章列表</strong></div>
         <div class="padding border-bottom">
-            <input type="button" class="button button-small checkall" name="checkall" checkfor="id[]" value="全选" />
-            <input type="button" id="btnAdd" class="button button-small border-green" value="添加文章" />
-            <input type="submit" class="button button-small border-yellow" onclick="return confirm('确认删除么？');" value="批量删除" />
-            <input type="button" class="button button-small border-blue" value="回收站" />
+        <input type="button" class="button button-small border-blue" name="checkall" checkfor="id[]" id="quanxuan" value="全选" />
+        <input type="button" class="button button-small border-blue" id="quxiao" value="全不选" />
+        <input type="button" class="button button-small border-blue" id="fanxuan" value="反选" />
+        <input type="button" id="btnAdd" class="button button-small border-green" value="添加文章" />
+        <input type="submit" class="button button-small border-yellow" value="批量删除" id="alldel"/>
         </div>
         <table class="table table-hover">
         	<tr align="center">
@@ -57,7 +102,7 @@
                 <td>{$vo.time|date="Y-m-d",###}</td>
                 <td>
                     <a class="button border-blue button-little" href="{:U('Admin/Article/edit',array('id'=>$vo['id']))}">修改</a> 
-                    <a class="button border-yellow button-little" href="" onclick="return confirm('确认删除么？');">删除</a>
+                    <a class="button border-yellow button-little" href="{:U('Admin/Article/del',array('id'=>$vo['id']))}" onclick="return confirm('确认删除么？');">删除</a>
                 </td>
             </tr>
            </volist>
