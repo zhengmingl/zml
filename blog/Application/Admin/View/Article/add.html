@@ -13,6 +13,9 @@
 <style type="text/css">
    a:hover { text-decoration:none;}
 </style>      
+<script type="text/javascript" src="__ADMIN__/ueditor/ueditor.config.js"></script>
+              <!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__ADMIN__/ueditor/ueditor.all.js"></script>
 <script src="__ADMIN__/js/jquery.js"></script>
 <script src="__ADMIN__/js/pintuer.js"></script>
 <script src="__ADMIN__/js/respond.js"></script>
@@ -125,12 +128,12 @@
               <label for="readme">文章内容</label>
             </div>
             <div class="field">
-              <textarea name="content" id="content" class="input" rows="5" cols="50"></textarea>
-              <script>
-                   // CKEDITOR.replace('content',{
-                   //     customConfig:'custom.js'
-                   // });
-              </script>
+             <p style='width:900px; padding-left:0; float:left;'>
+             <script id="container" name="content" type="text/plain"></script>
+            </p>
+               <script>
+               var ue = UE.getEditor('container');
+               </script>
             </div>
           </div>
           <div class="form-button">

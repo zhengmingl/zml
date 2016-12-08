@@ -8,6 +8,7 @@
     <title>拼图后台管理-后台管理</title>
     <link rel="stylesheet" href="__ADMIN__/css/pintuer.css">
     <link rel="stylesheet" href="__ADMIN__/css/admin.css">
+    <link rel="stylesheet" href="__ADMIN__/css/page.css">
     <script src="__ADMIN__/js/jquery.js"></script>
     <script src="__ADMIN__/js/pintuer.js"></script>
     <script src="__ADMIN__/js/respond.js"></script>
@@ -97,7 +98,10 @@
                 <td><input type="checkbox" name="id[]" value="{$vo.id}" /></td>
                 <td>{$vo.name}</td>
                 <td>{$vo.title}</td>
-                <td><img src="/Uploads/images/{$vo.small}"></td>
+                <td><if condition="$vo.small !=''" >
+                <img src="/Uploads/images/{$vo.small}">
+                </if>
+                </td>
                 <td>{$vo.hits}</td>
                 <td>{$vo.time|date="Y-m-d",###}</td>
                 <td>
@@ -107,6 +111,9 @@
             </tr>
            </volist>
         </table>
+         <div class="panel-foot text-center meneame" >
+          {$page}
+        </div>
     </div>
     </form>
     <br />

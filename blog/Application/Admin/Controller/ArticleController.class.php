@@ -3,11 +3,24 @@ namespace Admin\Controller;
 use  Think\Controller;
  class ArticleController extends MyController{
     public function index(){
-    	$art=D('Article');
-    	$data=$art->table('bk_article')->alias('a')->field('a.id,a.title,a.small,a.hits,a.time,c.name')
-    	          ->join('bk_category as c on c.id=a.cateid','left')->select();
-    	$this->assign('data',$data);
-    	$this->display();
+    	  $art=D('Article');
+        $page=I('get.p','1');
+        $size=2;
+        $offset=($page-1)*$size;
+        $count=$art->count();
+        $page=new \Think\Page($count,$size);
+        $page->setConfig('prev','上一页');  
+        $page->setConfig('next','下一页');  
+        $page->setConfig('first','首页');
+        $page->setConfig('end','末页');
+        $page->rollPage = 5;
+        $page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');  
+        $show=$page->show();
+    	  $data=$art->table('bk_article')->alias('a')->field('a.id,a.title,a.small,a.hits,a.time,c.name')
+    	          ->join('bk_category as c on c.id=a.cateid','left')->limit($offset,$size)->select();
+        $this->assign('page',$show);
+    	  $this->assign('data',$data);
+    	  $this->display();
     }
     public function add(){
     	$cate=D('Category');
@@ -52,8 +65,6 @@ use  Think\Controller;
 				$data['small'] = $small;
 			}
 		}
-
-
          if($art->add($data)){
           $this->success('添加成功','index',1);
          }else{
@@ -62,14 +73,13 @@ use  Think\Controller;
     	}
     }
   
-
   public function edit($id){
      $art=D('Article');
 
       $row=$art->table('bk_article')->alias('a')->field('a.*,c.id as cid')
                 ->join('bk_category as c on c.id=a.cateid','left')->where("a.id=$id")->select();
      // var_dump($art->getlastSql());die;
-              //  var_dump($row);die;
+            // var_dump($row);die;
      $row=$row[0];
      $this->assign('row',$row);
      $cate=D('Category');
@@ -118,7 +128,7 @@ use  Think\Controller;
       $data['thumb']=$row[0]['thumb'];
       $data['small']=$row[0]['small'];
     }
-    //var_dump($data);die;
+    var_dump($data);die;
         if( $art->save($data)){
           $this->success('更新成功','index',1);
         }else{
@@ -152,11 +162,6 @@ use  Think\Controller;
   	    }
   	}
   }
-   
-
-
-
-
 
  }
 ?>

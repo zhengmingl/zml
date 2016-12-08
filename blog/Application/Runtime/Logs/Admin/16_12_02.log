@@ -1,0 +1,48 @@
+[ 2016-12-02T09:10:55+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-02T10:33:07+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-02T10:43:28+08:00 ] 127.0.0.1 /index.php/Admin/Category/delall
+ERR: 非法操作:delall
+
+[ 2016-12-02T15:27:29+08:00 ] 127.0.0.1 /index.php/Admin/Article/index.html
+ERR: 模板不存在:./Application/Admin/View/Article/index.html
+
+[ 2016-12-02T16:35:24+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T16:36:50+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T16:36:52+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T16:36:52+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T16:55:28+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-02T16:57:41+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T17:02:31+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T17:11:51+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T17:12:03+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T17:15:52+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T17:16:21+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+
+[ 2016-12-02T17:18:36+08:00 ] 127.0.0.1 /index.php/Admin/Article/Public/ckeditor/ckeditor.js
+ERR: 非法操作:Public
+

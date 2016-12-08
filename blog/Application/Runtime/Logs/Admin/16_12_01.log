@@ -1,0 +1,132 @@
+[ 2016-12-01T09:15:20+08:00 ] 127.0.0.1 /index.php/admin/index/index.php
+ERR: 非法操作:index.php
+
+[ 2016-12-01T09:15:30+08:00 ] 127.0.0.1 /index.php/admin/index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T09:15:36+08:00 ] 127.0.0.1 /index.php/admin/index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T09:16:41+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:16:42+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:24+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:25+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:25+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:25+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:25+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:26+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:26+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:26+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:26+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:34+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:35+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:35+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T09:18:35+08:00 ] 127.0.0.1 /index.php/Admin/Category/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2016-12-01T11:17:03+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T11:22:06+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:17:18+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:17:27+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:17:29+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:41:24+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:41:34+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:41:36+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:41:38+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:46:26+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:46:28+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:46:56+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T13:53:15+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T14:30:21+08:00 ] 127.0.0.1 /index.php/Admin/Index/js/jquery.js
+ERR: 非法操作:js
+
+[ 2016-12-01T14:54:17+08:00 ] 127.0.0.1 /index.php/Admin/Category/del.html
+ERR: 非法操作:del
+
+[ 2016-12-01T14:54:44+08:00 ] 127.0.0.1 /index.php/Admin/Category/del.html
+ERR: 非法操作:del
+
+[ 2016-12-01T14:59:36+08:00 ] 127.0.0.1 /index.php/Admin/Category/del.html
+ERR: 非法操作:del
+
+[ 2016-12-01T14:59:45+08:00 ] 127.0.0.1 /index.php/Admin/Category/edit.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-12-01T15:12:54+08:00 ] 127.0.0.1 /index.php/Admin/Category/edit.html&1
+ERR: 非法操作:edit.html&1
+
+[ 2016-12-01T15:14:53+08:00 ] 127.0.0.1 /index.php/Admin/Category/edit.html&id=1
+ERR: 非法操作:edit.html&id=1
+
+[ 2016-12-01T15:16:03+08:00 ] 127.0.0.1 /index.php/Admin/Category/edit.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-12-01T15:16:30+08:00 ] 127.0.0.1 /index.php/Admin/Category/edit.html&id=1
+ERR: 非法操作:edit.html&id=1
+
+[ 2016-12-01T15:16:56+08:00 ] 127.0.0.1 /index.php/Admin/Category/edit.html&id=1
+ERR: 非法操作:edit.html&id=1
+
+[ 2016-12-01T16:14:04+08:00 ] 127.0.0.1 /index.php/Admin/Category/edit/id/1.html
+ERR: Think\Model:fiels方法不存在！
+
+[ 2016-12-01T17:11:26+08:00 ] 127.0.0.1 /index.php/Admin/Category/del.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-12-01T17:21:19+08:00 ] 127.0.0.1 /index.php/Admin/Category/delall
+ERR: 非法操作:delall
+
