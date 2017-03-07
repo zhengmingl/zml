@@ -8,7 +8,6 @@
 <title>拼图后台管理-后台管理</title>
 <link rel="stylesheet" href="/Public/Admin/css/pintuer.css">
 <link rel="stylesheet" href="/Public/Admin/css/admin.css">
-<link rel="stylesheet" href="/Public/Admin/css/demo.css">
 <link rel="stylesheet" href="/Public/Admin/css/dropify.css">
 <style type="text/css">
    a:hover { text-decoration:none;}
@@ -79,7 +78,7 @@
 
              <ul class="nav nav-inline admin-nav" id="menu_list">
                 <li <?php if(($type) == "0"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Index/index');?>" class="icon-home"> 开始</a>
-                     <ul><li class="active"><a href="<?php echo U('Admin/Category/index');?>">分类管理</a></li><li><a href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li><a href="index.php?c=Article&a=index">评论管理</a></li><li><li><a href="index.php?c=Album&a=index">相册管理</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li><li><a href="index.php?c=Zhanzhang&a=index">站长管理</a></li><li><a href="index.php?c=Link&a=index">友情链接</a></li></ul>  
+                     <ul><li><a href="<?php echo U('Admin/Category/index');?>">分类管理</a></li><li><a href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li><a href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li><li><a href="<?php echo U('Admin/Zhanzhang/index');?>">站长管理</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li><li><a href="index.php?c=Zhanzhang&a=index">站长管理</a></li><li><a href="index.php?c=Link&a=index">友情链接</a></li></ul>  
                  </li>
                 <li <?php if(($type) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/index');?>" class="icon-file-text"> 分类管理</a>
                    <ul><li <?php if(($types) == "0"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/index');?>">分类管理</a></li><li <?php if(($types) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/add');?>">分类添加</a></li></ul>  
@@ -87,8 +86,8 @@
                  <li <?php if(($type) == "20"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Article/index');?>" class="icon-file"> 文章管理</a>
                      <ul><li <?php if(($types) == "0"): ?>class="active"<?php endif; ?>><a  href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li <?php if(($types) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Article/add');?>">文章添加</a></li></ul>  
                  </li>
-                <li <?php if(($type) == "30"): ?>class="active"<?php endif; ?>><a href="#" class="icon-shopping-cart"> 订单</a></li>
-                <li <?php if(($type) == "40"): ?>class="active"<?php endif; ?>><a href="#" class="icon-user"> 会员</a></li>
+                 <li <?php if(($type) == "30"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Zhanzhang/index');?>" class="icon-user"> 站长管理</a></li>
+                <li <?php if(($type) == "40"): ?>class="active"<?php endif; ?>><a href="#" class="icon-shopping-cart"> 订单</a></li>
                 <li <?php if(($type) == "50"): ?>class="active"<?php endif; ?>><a href="#" class="icon-th-list"> 栏目</a></li>
             </ul>
         </div>

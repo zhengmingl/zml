@@ -6,15 +6,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title>拼图后台管理-后台管理</title>
-<link rel="stylesheet" href="/Public/Admin/css/pintuer.css">
-<link rel="stylesheet" href="/Public/Admin/css/admin.css">
-<link rel="stylesheet" href="__ADMIN__/css/demo.css">
+<link rel="stylesheet" href="__ADMIN__/css/pintuer.css">
+<link rel="stylesheet" href="__ADMIN__/css/admin.css">
 <link rel="stylesheet" href="__ADMIN__/css/dropify.css">
-<script src="/Public/Admin/js/jquery.js"></script>
-<script src="/Public/Admin/js/pintuer.js"></script>
-<script src="/Public/Admin/js/respond.js"></script>
-<script src="/Public/Admin/js/admin.js"></script>
-<!-- <script src="./Public/ckeditor/ckeditor.js"></script> -->
+<script src="__ADMIN__/js/jquery.js"></script>
+<script src="__ADMIN__/js/pintuer.js"></script>
+<script src="__ADMIN__/js/respond.js"></script>
+<script src="__ADMIN__/js/admin.js"></script>
+<script src="__ADMIN__/js/dropify.js"></script>
+ <script src="./Public/ckeditor/ckeditor.js"></script>
+<script>
+            //上传图片
+            $(document).ready(function(){
+                // Basic
+                $('.dropify').dropify();
+                // Translated
+                $('.dropify-fr').dropify({
+                    messages: {
+                        default: 'Glissez-déposez un fichier ici ou cliquez',
+                        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                        remove:  'Supprimer',
+                        error:   'Désolé, le fichier trop volumineux'
+                    }
+                });
+
+                // Used events
+                var drEvent = $('#input-file-events').dropify();
+                drEvent.on('dropify.beforeClear', function(event, element){
+                    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                });
+                drEvent.on('dropify.afterClear', function(event, element){
+                    alert('File deleted');
+                });
+
+                drEvent.on('dropify.errors', function(event, element){
+                    console.log('Has Errors');
+                });
+                var drDestroy = $('#input-file-to-destroy').dropify();
+                drDestroy = drDestroy.data('dropify')
+                $('#toggleDropify').on('click', function(e){
+                    e.preventDefault();
+                    if (drDestroy.isDropified()) {
+                        drDestroy.destroy();
+                    } else {
+                        drDestroy.init();
+                    }
+                })
+            });
+        </script>
 <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
 <link href="/favicon.ico" rel="bookmark icon" />
 </head>
@@ -44,7 +83,7 @@
               <label for="logo">缩略图</label>
             </div>      
             <div class="field"> <a style=text-decoration:underline >上传文件
-          <input size="100" type="file" id="input-file-events" class="dropify-event" name="file" data-validate="required:请选择上传文件,regexp#.+.(jpg|jpeg|png|gif)$:只能上传jpg|gif|png格式文件" /> 
+         <input size="100" type="file" id="input-file-events" class="dropify-event" name="file" data-validate="required:请选择上传文件,regexp#.+.(jpg|jpeg|png|gif)$:只能上传jpg|gif|png格式文件" data-default-file="/Uploads/images/{$row.thumb}"/> 
               </a> </div>
           </div>
           <div class="form-group">

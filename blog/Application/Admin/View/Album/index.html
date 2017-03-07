@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>拼图后台管理-后台管理</title>
+    <link rel="stylesheet" href="__ADMIN__/css/pintuer.css">
+    <link rel="stylesheet" href="__ADMIN__/css/admin.css">
+    <script src="__ADMIN__/js/jquery.js"></script>
+    <script src="__ADMIN__/js/pintuer.js"></script>
+    <script src="__ADMIN__/js/respond.js"></script>
+    <script src="__ADMIN__/js/admin.js"></script>
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+    <link href="/favicon.ico" rel="bookmark icon" />
+    <script>
+        //定义页面载入事件
+        $(function(){
+            //获取btnAdd按钮
+            $('#btnAdd').bind('click',function(){
+                window.location.href = 'index.php?c=Album&a=add';
+            });
+        });
+    </script>
+</head>
+
+<body>
+<include file="Pub:daohang"/>
+
+<div class="admin">
+	<form action="" method="post">
+    <div class="panel admin-panel">
+    	<div class="panel-head"><strong>文章列表</strong></div>
+        <div class="padding border-bottom">
+            <input type="button" class="button button-small checkall" name="checkall" checkfor="id[]" value="全选" />
+            <input type="button" id="btnAdd" class="button button-small border-green" value="添加相册" />
+            <input type="submit" class="button button-small border-yellow" onclick="return confirm('确认删除么？');" value="批量删除" />
+            <input type="button" class="button button-small border-blue" value="回收站" />
+        </div>
+        <table class="table table-hover">
+        	<tr>
+                <th width="45">选择</th>
+                <th width="50">编号</th>
+                <th width="*">文章标题</th>
+                <th width="80">所属类别</th>
+                <th width="120">点击率</th>
+                <th width="180">发布时间</th>
+                <th width="100">操作</th>
+            </tr>
+            {foreach from=$data item='row'}
+            <tr>
+                <td><input type="checkbox" name="id[]" value="{$row['artid']}" /></td>
+                <td>{$row['albid']}</td>
+                <td>{$row['title']}</td>
+                <td>{$row['cateid']}</td>
+                <td>{$row['hits']}</td>
+                <td>{$row['addtime']|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+                <td>
+                    <a class="button border-blue button-little" href="index.php?c=Article&a=edit&artid={$row['artid']}">修改</a> 
+                    <a class="button border-yellow button-little" href="index.php?c=Article&a=del&artid={$row['artid']}" onclick="return confirm('确认删除么？');">删除</a>
+                </td>
+            </tr>
+            {/foreach}
+        </table>
+        <div class="panel-foot text-center">
+            {$page}
+        </div>
+    </div>
+    </form>
+    <br />
+    <p class="text-right text-gray">基于<a class="text-gray" target="_blank" href="#">拼图前端框架</a>构建</p>
+</div>
+
+</body>
+</html>

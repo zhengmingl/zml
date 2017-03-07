@@ -15,6 +15,7 @@ use      Think\Controller;
      	$zhan=D('Zhanzhang');
      	$data= $zhan->create();
         $row=$zhan->select();
+        $data['id']=$row[0]['id'];
       //上传图片改了的话
       if($_FILES['file']['size'] > 0) {
       //第一步：实例化Upload上传类
@@ -47,8 +48,6 @@ use      Think\Controller;
       $data['thumb']=$row[0]['thumb'];
       $data['small']=$row[0]['small'];
     }
-
-      //var_dump($data);die;
         if( $zhan->save($data)){
           $this->success('更新成功','index',1);
         }else{

@@ -8,13 +8,52 @@
 <title>拼图后台管理-后台管理</title>
 <link rel="stylesheet" href="/Public/Admin/css/pintuer.css">
 <link rel="stylesheet" href="/Public/Admin/css/admin.css">
-<link rel="stylesheet" href="/Public/Admin/css/demo.css">
 <link rel="stylesheet" href="/Public/Admin/css/dropify.css">
 <script src="/Public/Admin/js/jquery.js"></script>
 <script src="/Public/Admin/js/pintuer.js"></script>
 <script src="/Public/Admin/js/respond.js"></script>
 <script src="/Public/Admin/js/admin.js"></script>
-<!-- <script src="./Public/ckeditor/ckeditor.js"></script> -->
+<script src="/Public/Admin/js/dropify.js"></script>
+ <script src="./Public/ckeditor/ckeditor.js"></script>
+<script>
+            //上传图片
+            $(document).ready(function(){
+                // Basic
+                $('.dropify').dropify();
+                // Translated
+                $('.dropify-fr').dropify({
+                    messages: {
+                        default: 'Glissez-déposez un fichier ici ou cliquez',
+                        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                        remove:  'Supprimer',
+                        error:   'Désolé, le fichier trop volumineux'
+                    }
+                });
+
+                // Used events
+                var drEvent = $('#input-file-events').dropify();
+                drEvent.on('dropify.beforeClear', function(event, element){
+                    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                });
+                drEvent.on('dropify.afterClear', function(event, element){
+                    alert('File deleted');
+                });
+
+                drEvent.on('dropify.errors', function(event, element){
+                    console.log('Has Errors');
+                });
+                var drDestroy = $('#input-file-to-destroy').dropify();
+                drDestroy = drDestroy.data('dropify')
+                $('#toggleDropify').on('click', function(e){
+                    e.preventDefault();
+                    if (drDestroy.isDropified()) {
+                        drDestroy.destroy();
+                    } else {
+                        drDestroy.init();
+                    }
+                })
+            });
+        </script>
 <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
 <link href="/favicon.ico" rel="bookmark icon" />
 </head>
@@ -33,7 +72,7 @@
 
              <ul class="nav nav-inline admin-nav" id="menu_list">
                 <li <?php if(($type) == "0"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Index/index');?>" class="icon-home"> 开始</a>
-                     <ul><li class="active"><a href="<?php echo U('Admin/Category/index');?>">分类管理</a></li><li><a href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li><a href="index.php?c=Article&a=index">评论管理</a></li><li><li><a href="index.php?c=Album&a=index">相册管理</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li><li><a href="index.php?c=Zhanzhang&a=index">站长管理</a></li><li><a href="index.php?c=Link&a=index">友情链接</a></li></ul>  
+                     <ul><li><a href="<?php echo U('Admin/Category/index');?>">分类管理</a></li><li><a href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li><a href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li><li><a href="<?php echo U('Admin/Zhanzhang/index');?>">站长管理</a></li><a href="index.php?c=Artonce&a=index">页面管理</a></li><li><a href="index.php?c=Zhanzhang&a=index">站长管理</a></li><li><a href="index.php?c=Link&a=index">友情链接</a></li></ul>  
                  </li>
                 <li <?php if(($type) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/index');?>" class="icon-file-text"> 分类管理</a>
                    <ul><li <?php if(($types) == "0"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/index');?>">分类管理</a></li><li <?php if(($types) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Category/add');?>">分类添加</a></li></ul>  
@@ -79,7 +118,7 @@
               <label for="logo">缩略图</label>
             </div>      
             <div class="field"> <a style=text-decoration:underline >上传文件
-          <input size="100" type="file" id="input-file-events" class="dropify-event" name="file" data-validate="required:请选择上传文件,regexp#.+.(jpg|jpeg|png|gif)$:只能上传jpg|gif|png格式文件" /> 
+         <input size="100" type="file" id="input-file-events" class="dropify-event" name="file" data-validate="required:请选择上传文件,regexp#.+.(jpg|jpeg|png|gif)$:只能上传jpg|gif|png格式文件" data-default-file="/Uploads/images/<?php echo ($row["thumb"]); ?>"/> 
               </a> </div>
           </div>
           <div class="form-group">

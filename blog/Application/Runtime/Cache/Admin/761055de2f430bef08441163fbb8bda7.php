@@ -8,7 +8,6 @@
 <title>拼图后台管理-后台管理</title>
 <link rel="stylesheet" href="/Public/Admin/css/pintuer.css">
 <link rel="stylesheet" href="/Public/Admin/css/admin.css">
-<link rel="stylesheet" href="/Public/Admin/css/demo.css">
 <link rel="stylesheet" href="/Public/Admin/css/dropify.css">
 <style type="text/css">
    a:hover { text-decoration:none;}

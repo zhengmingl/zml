@@ -6,7 +6,9 @@ return array(
     'DB_USER'               =>  'root',      // 用户名
     'DB_PWD'                =>  'hxqc123456',          // 密码
     'DB_PORT'               =>  '3306',        // 端口
+    //'DB_DSN'                 => 'mysql:host=localhost;dbname=blog;charset=utf8',
     'DB_PREFIX'             =>  'bk_',    // 数据库表前缀
+   //'DB_DSN' => 'mysql://root:password@localhost:3306/table#utf8',
     //session设置
     //'SESSION_TYPE'          =>  'Memcache',
     //'MEMCACHE_HOST'         =>'192.168.24.99',  //添加Mecache主机

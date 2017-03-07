@@ -12,6 +12,7 @@
     <script src="/Public/Admin/js/pintuer.js"></script>
     <script src="/Public/Admin/js/respond.js"></script>
     <script src="/Public/Admin/js/admin.js"></script>
+   <script src="/Public/Admin/js/dropify.js"></script>
     <script>
         $(function(){
             $('#code').bind('click',function(){

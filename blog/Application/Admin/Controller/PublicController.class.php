@@ -36,7 +36,8 @@ public function yzlogin(){
         $per->where("id=$id")->field('num,time,login_ip')->save($row);    //更新登录次数和时间
         
             session('user',$row);
-            $this->success('登陆成功',U('Admin/Index/index'),1);
+             $this->redirect('Admin/Index/index');
+         //   $this->success('登陆成功',U('Admin/Index/index'),1);
         }else{
             $this->error('用户名或密码错误',login,1);
         }
@@ -67,7 +68,9 @@ public function yzlogin(){
       if($userid){
          cookie('userid',null);
       }
-  $this->success('退出成功',U('Admin/public/login'),1);
+
+     _redirect(U('Admin/public/login'));
+ // $this->success('退出成功',U('Admin/public/login'),1);
   }
 
 
