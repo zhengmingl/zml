@@ -25,8 +25,8 @@ use  Think\Controller;
     public function add(){
     	$cate=D('Category');
       $list=$cate->select();
-      load('@/tree');
-	    $data = tree($list);
+      //load('@/tree');
+	    $data = tree1($list);
       $this->assign('data',$data);
  		$this->display();
     }

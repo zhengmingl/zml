@@ -20,7 +20,7 @@
    function showalert(mes,close){  
     var close = close || 0; 
     layer.open({
-    area: ['630px', '360px'],
+    //area: ['630px', '360px'],
     content: mes,
     btn: ['确定'],//,'取消']
     end:function(){       //end - 层销毁后触发的回调
@@ -61,12 +61,12 @@
                 dataType:"json",
                 success:function(data){
                     if(data.code==0){
-                        showalert('验证码错误');
+                        showalert(data.mes);
                         return false;
                     }else if(data.code==1){
-                        showalert("用户名或者密码错误");
+                        showalert(data.mes);
                         return false;
-                    }else if(data.code==2){
+                    }else if(data.code==200){
                          window.location.href ="<?php echo U('Admin/Index/index');?>";
                     }else{
                         showalert('网络错误');

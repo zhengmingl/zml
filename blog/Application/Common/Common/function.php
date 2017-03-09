@@ -15,7 +15,7 @@ function print_g($arr=array(),$is_exit=true)
     }
 }
 //定义tree函数
-	function tree1($list, $pid=0, $level=0) {
+function tree($list, $pid=0, $level=0) {
 		static $data = array();
 		foreach($list as $row) {
 			if($row['pid'] == $pid) {
@@ -26,16 +26,15 @@ function print_g($arr=array(),$is_exit=true)
 		}
 		return $data;
 	}
-
-  function _redirect($url)
+   //跳转
+   function _redirect($url)
 	{
         header("Location:" . $url);
     }
-  
+   //ajax回调
     function _ajaxFailure($data)
 	{
         // $ret = array('status' => self::ERROR, 'info' => $msg, 'data' => $data);
-        // $this->_ajaxExit($ret);
           echo json_encode($data, JSON_UNESCAPED_UNICODE);
           exit();
     }

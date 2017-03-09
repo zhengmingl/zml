@@ -5,7 +5,7 @@ use      Think\Controller;
  	public function index(){
  		$cate=D('Category');
  		$data=$cate->select();
- 			load('@/tree');
+ 			//load('@/tree');
 		$tree=tree($data);
 		 foreach ($tree as  $value) {
           $res['id']=$value['id'];
@@ -28,7 +28,7 @@ use      Think\Controller;
  	public function add(){
         $cate=D('Category');
         $list=$cate->select();
-        load('@/tree');
+        //load('@/tree');
 		    $data = tree($list);
         $this->assign('data',$data);
  		   $this->display();
@@ -49,7 +49,7 @@ use      Think\Controller;
     public function edit($id){
        $cate=D('Category');
        $data=$cate->field('name,id,pid')->select();
- 	   load('@/tree');
+ 	  // load('@/tree');
 	   $tree=tree($data);
        $row=$cate->find($id);
        $this->assign('tree',$tree);

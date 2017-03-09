@@ -8,7 +8,6 @@
     <title>拼图后台管理-后台管理</title>
     <link rel="stylesheet" href="/Public/Admin/css/pintuer.css">
     <link rel="stylesheet" href="/Public/Admin/css/admin.css">
-    <script src="js/jquery.js"></script>
     <script src="/Public/Admin/js/pintuer.js"></script>
     <script src="/Public/Admin/js/respond.js"></script>
     <script src="/Public/Admin/js/admin.js"></script>
@@ -16,23 +15,15 @@
     <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
     <link href="/favicon.ico" rel="bookmark icon" />
      <script  src="/Public/Admin/js/canvas-particle.js"></script>
-    <script type="text/javascript">
-        // window.onload = function(){
-        //     var config = {
-        //         vx: 4,
-        //         vy:  4,
-        //         height: 2,
-        //         width: 2,
-        //         count: 100,
-        //         color: "121, 162, 185",
-        //         stroke: "100,200,180",
-        //         dist: 6000,
-        //         e_dist: 20000,
-        //         max_conn: 10
-        //     }
-        //     CanvasParticle(config);
-        // }
-    </script>
+     <style type="text/css">
+    .righter {
+    float: left;
+    width: 100%;
+    padding-top: 1px;
+    margin-top: 0px;
+    background: #e6f2fb;
+}
+     </style>>
 </head>
 <body>
 <?php $type="0"?>
@@ -73,7 +64,7 @@
     </div>
 </div>
 
-
+<!-- 
 <div class="admin">
 	<div class="line-big">
     	<div class="xm3">
@@ -128,7 +119,7 @@
     </div>
     <br />
 </div>
-
+ -->
 
 </body>
 </html>

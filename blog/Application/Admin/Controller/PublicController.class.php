@@ -11,7 +11,7 @@ public function yzlogin(){
   $param = I('post.');
   $verify=new \Think\Verify();
   if(!$verify->check($param['passcode'])){
-          $code=array('code'=>0);
+          $code=array('code'=>0,'mes'=>'验证码错误');
            _ajaxFailure($code);
         }
      $password=md5($param['password']);
@@ -27,10 +27,10 @@ public function yzlogin(){
         $id=$row['id'];
         $per->where("id=$id")->field('num,time,login_ip')->save($row);    //更新登录次数和时间
         session('user',$row);
-        $code=array('code'=>2);
+        $code=array('code'=>200);
         _ajaxFailure($code);
      }else{
-          $code=array('code'=>1);
+          $code=array('code'=>1,'mes'=>'用户名或者密码错误');
            _ajaxFailure($code);
      }
 }
