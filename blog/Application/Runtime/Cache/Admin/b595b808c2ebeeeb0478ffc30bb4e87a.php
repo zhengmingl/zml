@@ -17,21 +17,21 @@
     <link href="/favicon.ico" rel="bookmark icon" />
      <script  src="/Public/Admin/js/canvas-particle.js"></script>
     <script type="text/javascript">
-        window.onload = function(){
-            var config = {
-                vx: 4,
-                vy:  4,
-                height: 2,
-                width: 2,
-                count: 100,
-                color: "121, 162, 185",
-                stroke: "100,200,180",
-                dist: 6000,
-                e_dist: 20000,
-                max_conn: 10
-            }
-            CanvasParticle(config);
-        }
+        // window.onload = function(){
+        //     var config = {
+        //         vx: 4,
+        //         vy:  4,
+        //         height: 2,
+        //         width: 2,
+        //         count: 100,
+        //         color: "121, 162, 185",
+        //         stroke: "100,200,180",
+        //         dist: 6000,
+        //         e_dist: 20000,
+        //         max_conn: 10
+        //     }
+        //     CanvasParticle(config);
+        // }
     </script>
 </head>
 <body>
@@ -58,8 +58,9 @@
                      <ul><li <?php if(($types) == "0"): ?>class="active"<?php endif; ?>><a  href="<?php echo U('Admin/Article/index');?>">文章管理</a></li><li <?php if(($types) == "10"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Article/add');?>">文章添加</a></li></ul>  
                  </li>
                  <li <?php if(($type) == "30"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Zhanzhang/index');?>" class="icon-user"> 站长管理</a></li>
-                <li <?php if(($type) == "40"): ?>class="active"<?php endif; ?>><a href="#" class="icon-shopping-cart"> 订单</a></li>
-                <li <?php if(($type) == "50"): ?>class="active"<?php endif; ?>><a href="#" class="icon-th-list"> 栏目</a></li>
+                <li <?php if(($type) == "40"): ?>class="active"<?php endif; ?>><a href="<?php echo U('Admin/Lanmu/index');?>" class="icon-th-list"> 栏目</a></li>
+                <li <?php if(($type) == "50"): ?>class="active"<?php endif; ?>><a href="#" class="icon-shopping-cart"> 订单</a></li>
+               
             </ul>
         </div>
         <div class="admin-bread">

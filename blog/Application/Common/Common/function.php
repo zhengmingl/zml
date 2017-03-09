@@ -31,5 +31,13 @@ function print_g($arr=array(),$is_exit=true)
 	{
         header("Location:" . $url);
     }
-
+  
+    function _ajaxFailure($data)
+	{
+        // $ret = array('status' => self::ERROR, 'info' => $msg, 'data' => $data);
+        // $this->_ajaxExit($ret);
+          echo json_encode($data, JSON_UNESCAPED_UNICODE);
+          exit();
+    }
+  
 ?>

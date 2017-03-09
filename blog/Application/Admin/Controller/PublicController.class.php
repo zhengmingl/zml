@@ -8,23 +8,15 @@ class PublicController extends Controller{
     }
     //验证登陆
 public function yzlogin(){
-    if(IS_POST){
-        $username=I('post.username');
-        $password=I('post.password');
-        $code=I('post.passcode');
-
-        if(empty($code)){
-            $this->error('验证码不能为空','login',1);
+  $param = I('post.');
+  $verify=new \Think\Verify();
+  if(!$verify->check($param['passcode'])){
+          $code=array('code'=>0);
+           _ajaxFailure($code);
         }
-       $verify=new \Think\Verify();
-        if(!$verify->check($code)){
-            $this->error('验证码错误','login',1);
-        }
-       if(empty($username)||empty($password)){
-           $this->error('用户名或者密码不能为空',login,1);
-       }
-      $password=md5($password);
-        $where="username='$username' and password='$password'";
+     $password=md5($param['password']);
+     $username=$param['username'];
+     $where="username='$username' and password='$password'";
         $per=D('Person');
         $row=$per->where($where)->find();
         $row['oldtime']=$row['time'];
@@ -34,14 +26,13 @@ public function yzlogin(){
         $row['login_ip']=$_SERVER['REMOTE_ADDR'];      //获取IP地址
         $id=$row['id'];
         $per->where("id=$id")->field('num,time,login_ip')->save($row);    //更新登录次数和时间
-        
-            session('user',$row);
-             $this->redirect('Admin/Index/index');
-         //   $this->success('登陆成功',U('Admin/Index/index'),1);
-        }else{
-            $this->error('用户名或密码错误',login,1);
-        }
-    }
+        session('user',$row);
+        $code=array('code'=>2);
+        _ajaxFailure($code);
+     }else{
+          $code=array('code'=>1);
+           _ajaxFailure($code);
+     }
 }
      
   //定义方法生成验证码
